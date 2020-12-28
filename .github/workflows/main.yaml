@@ -1,8 +1,9 @@
-name: Heroku Continuous Deployment
+name: Deploy
 
 on:
   push:
-    branches: [master]
+    branches: 
+      - main
 
 jobs:
   deploy:
