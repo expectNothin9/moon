@@ -17,3 +17,4 @@ yarn start  # Runs the built app in production mode
 ## Reference
 
 * [example](https://github.com/vercel/next.js/tree/canary/examples/with-redux-toolkit) of next.js with-redux-toolkit
+* [CI/CD] through Github Actions and [`heroku-deploy`](https://github.com/marketplace/actions/deploy-to-heroku)
