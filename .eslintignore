@@ -1,1 +1,3 @@
 node_modules
+.next
+db_with-redux-toolkit
