@@ -14,11 +14,11 @@ const connectMiddleware = (handler) => async (req, res) => {
             'id:uuid': { pk: true },
             'title:string': { notNull: true },
             'content:string': { notNull: true },
-            'createdAt:date': { default: () => new Date() },
-          },
-        },
+            'createdAt:date': { default: () => new Date() }
+          }
+        }
       ],
-      version: 1,
+      version: 1
     })
   }
   nSQL().useDatabase(dbName)
@@ -37,7 +37,7 @@ const saveNote = async (req, res) => {
     return res.status(422).json({
       statusCode: 422,
       message: 'Unprocessable Entity',
-      errors,
+      errors
     })
 
   const [note] = await nSQL('notes').query('upsert', { title, content }).exec()
@@ -51,16 +51,12 @@ const listNotes = async (_, res) => {
 }
 const updateNote = async (req, res) => {
   const { noteId } = req.query
-  const [note] = await nSQL()
-    .query('select')
-    .where(['id', '=', noteId])
-    .limit(1)
-    .exec()
+  const [note] = await nSQL().query('select').where(['id', '=', noteId]).limit(1).exec()
 
   if (!note)
     return res.status(404).json({
       statusCode: 404,
-      message: 'Not Found',
+      message: 'Not Found'
     })
 
   const { title = note.title, content = note.content } = req.body
@@ -74,16 +70,12 @@ const updateNote = async (req, res) => {
 }
 const removeNote = async (req, res) => {
   const { noteId } = req.query
-  const [note] = await nSQL()
-    .query('select')
-    .where(['id', '=', noteId])
-    .limit(1)
-    .exec()
+  const [note] = await nSQL().query('select').where(['id', '=', noteId]).limit(1).exec()
 
   if (!note)
     return res.status(404).json({
       statusCode: 404,
-      message: 'Not Found',
+      message: 'Not Found'
     })
 
   await nSQL('notes').query('delete').where(['id', '=', noteId]).limit(1).exec()
@@ -104,7 +96,7 @@ const handler = (req, res) => {
     default:
       return res.status(404).json({
         statusCode: 404,
-        message: 'Not Found',
+        message: 'Not Found'
       })
   }
 }

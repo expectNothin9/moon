@@ -1,11 +1,11 @@
-import { useState, useEffect } from 'react' 
+import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
 import { RootState } from '../../store'
 import { Beauty, fetchBeauties } from './beautiesSlice'
 
 const BeautiesList = () => {
-  const [ initialized, setInitialized ] = useState(false)
+  const [initialized, setInitialized] = useState(false)
   const dispatch = useDispatch()
   const beauties: Beauty[] = useSelector((state: RootState) => {
     console.log(state.beauties.data)
@@ -21,9 +21,9 @@ const BeautiesList = () => {
 
   return (
     <ul>
-      {beauties.map((beauty) =>
-        <li key={beauty.id}>{beauty.instagram}</li>)
-      }
+      {beauties.map((beauty) => (
+        <li key={beauty.id}>{beauty.instagram}</li>
+      ))}
     </ul>
   )
 }

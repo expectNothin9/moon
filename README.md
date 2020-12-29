@@ -20,3 +20,4 @@ yarn start  # Runs the built app in production mode
 * [CI/CD](https://www.youtube.com/watch?v=eB0nUzAI7M8) through Github Actions and [`heroku-deploy`](https://github.com/marketplace/actions/deploy-to-heroku)
 * npm vs yarn [cheat sheet](https://shift.infinite.red/npm-vs-yarn-cheat-sheet-8755b092e5cc)
 * [nanoSQL 2](https://nanosql.io/query/) with [Redis adapter](https://nanosql.io/adapters/redis.html)
+* [eslint + prettier](https://dev.to/onygami/eslint-and-prettier-for-react-apps-bonus-next-js-and-typescript-3e46) on Next.js and Typescript

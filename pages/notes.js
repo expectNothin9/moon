@@ -25,17 +25,15 @@ const Notes = () => {
       <br />
       <span>{note.content}</span>
       <br />
-      <button
-        aria-label={`Delete note with title: ${note.title}`}
-        onClick={() => dispatch(deleteNote(note.id))}
-      >
-        🗑️
+      <button onClick={() => dispatch(deleteNote(note.id))}>
+        <span role="img" aria-label={`Delete note with title: ${note.title}`}>
+          🗑️
+        </span>
       </button>
-      <button
-        onClick={() => setSelectedNote(note)}
-        aria-label={`Edit note with title: ${note.title}`}
-      >
-        ✏️
+      <button onClick={() => setSelectedNote(note)}>
+        <span role="img" aria-label={`Edit note with title: ${note.title}`}>
+          ✏️
+        </span>
       </button>
     </li>
   )

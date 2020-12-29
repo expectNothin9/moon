@@ -7,7 +7,7 @@ import {
   incrementAsync,
   incrementByAmount,
   reset,
-  selectCount,
+  selectCount
 } from '../lib/slices/counterSlice'
 
 const Counter = () => {
@@ -37,19 +37,11 @@ const Counter = () => {
   return (
     <>
       <div className="row">
-        <button
-          className="button"
-          aria-label="Increment value"
-          onClick={dispatchIncrement}
-        >
+        <button className="button" aria-label="Increment value" onClick={dispatchIncrement}>
           +
         </button>
         <span className="value">{count}</span>
-        <button
-          className="button"
-          aria-label="Decrement value"
-          onClick={dispatchDecrement}
-        >
+        <button className="button" aria-label="Decrement value" onClick={dispatchDecrement}>
           -
         </button>
       </div>

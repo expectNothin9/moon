@@ -1,19 +1,18 @@
 import { configureStore } from '@reduxjs/toolkit'
 
+import beautiesReducer from './features/beauties/beautiesSlice'
 import clockReducer from './lib/slices/clockSlice'
 import counterReducer from './lib/slices/counterSlice'
 import notesReducer from './lib/slices/notesSlice'
-
-import beautiesReducer from './features/beauties/beautiesSlice'
 
 const store = configureStore({
   reducer: {
     counter: counterReducer,
     clock: clockReducer,
     notes: notesReducer,
-    beauties: beautiesReducer,
+    beauties: beautiesReducer
   },
-  devTools: true,
+  devTools: true
 })
 
 export default store

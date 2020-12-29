@@ -8,7 +8,7 @@ const AddNoteForm = () => {
   const { error } = useSelector(selectNotes)
   const handleSubmit = useForm({
     title: '',
-    content: '',
+    content: ''
   })
 
   return (

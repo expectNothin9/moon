@@ -22,26 +22,16 @@ const EditNoteForm = ({ note = {} }) => {
         onSubmit={handleSubmit(async (data) => {
           await dispatch(editNote(data))
           dialogRef.current.removeAttribute('open')
-        })}
-      >
+        })}>
         <h3>Edit Note</h3>
         <label htmlFor="titleInput">
           Title:
-          <input
-            type="text"
-            name="title"
-            id="titleInput"
-            defaultValue={note.title}
-          />
+          <input type="text" name="title" id="titleInput" defaultValue={note.title} />
         </label>
         <br />
         <label htmlFor="contentInput">
           Content:
-          <textarea
-            name="content"
-            id="contentInput"
-            defaultValue={note.content}
-          ></textarea>
+          <textarea name="content" id="contentInput" defaultValue={note.content}></textarea>
         </label>
         <br />
         <button type="submit">Edit</button>

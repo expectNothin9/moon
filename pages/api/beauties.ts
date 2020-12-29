@@ -17,11 +17,11 @@ const connectMiddleware = (handler) => async (req: NextApiRequest, res: NextApiR
           model: {
             'id:string': { pk: true },
             'instagram:string': { notNull: true },
-            'images:string[]': { notNull: true },
-          },
-        },
+            'images:string[]': { notNull: true }
+          }
+        }
       ],
-      version: 1,
+      version: 1
     })
   }
   nSQL().useDatabase(dbName)

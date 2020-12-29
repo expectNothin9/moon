@@ -1,4 +1,4 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 
 export type Beauty = {
   id: string
@@ -6,9 +6,11 @@ export type Beauty = {
   images: string[]
 }
 
-type Beauties = {
-  [key: string]: Beauty
-} | {}
+type Beauties =
+  | {
+      [key: string]: Beauty
+    }
+  | Record<string, never>
 
 const initialState = {
   isFetching: false,
@@ -41,17 +43,17 @@ const beautiesSlice = createSlice({
   name: 'beauties',
   initialState,
   reducers: {},
-  extraReducers: builder => {
+  extraReducers: (builder) => {
     builder.addCase(fetchBeauties.fulfilled, (state, action) => {
       state.data = action.payload.beauties
     })
-    builder.addCase(fetchSaveBeauties.pending, (state, action) => {
+    builder.addCase(fetchSaveBeauties.pending, (state) => {
       state.isFetching = true
     })
-    builder.addCase(fetchSaveBeauties.fulfilled, (state, action) => {
+    builder.addCase(fetchSaveBeauties.fulfilled, (state) => {
       state.isFetching = false
     })
-    builder.addCase(fetchSaveBeauties.rejected, (state, action) => {
+    builder.addCase(fetchSaveBeauties.rejected, (state) => {
       state.isFetching = false
       // TODO: error handling
     })
