@@ -1,18 +1,23 @@
-import { useEffect } from 'react' 
+import { useState, useEffect } from 'react' 
 import { useDispatch, useSelector } from 'react-redux'
 
 import { RootState } from '../../store'
 import { Beauty, fetchBeauties } from './beautiesSlice'
 
 const BeautiesList = () => {
+  const [ initialized, setInitialized ] = useState(false)
   const dispatch = useDispatch()
-  const beauties: Beauty[] = useSelector((state: RootState) => Object.values(state.beauties))
+  const beauties: Beauty[] = useSelector((state: RootState) => {
+    console.log(state.beauties.data)
+    return Object.values(state.beauties.data)
+  })
 
   useEffect(() => {
-    if (beauties.length === 0) {
+    if (!initialized) {
+      setInitialized(true)
       dispatch(fetchBeauties())
     }
-  }, [beauties])
+  }, [initialized])
 
   return (
     <ul>

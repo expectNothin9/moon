@@ -10,12 +10,31 @@ type Beauties = {
   [key: string]: Beauty
 } | {}
 
-const initialState = {} as Beauties
+const initialState = {
+  isFetching: false,
+  data: {} as Beauties
+}
 
 export const fetchBeauties = createAsyncThunk('beauties/fetchBeauties', async () => {
   const resp = await fetch('/api/beauties')
   const parsedResp = await resp.json()
-  return parsedResp
+  return {
+    beauties: parsedResp.beauties.reduce((acc: Beauties, cur: Beauty) => {
+      acc[cur.id] = cur
+      return acc
+    }, {})
+  }
+})
+
+export const fetchSaveBeauties = createAsyncThunk('beauties/fetchSaveBeauties', async () => {
+  const resp = await fetch('/api/beauties', { method: 'POST' })
+  const parsedResp = await resp.json()
+  return {
+    beauties: parsedResp.beauties.reduce((acc: Beauties, cur: Beauty) => {
+      acc[cur.id] = cur
+      return acc
+    }, {})
+  }
 })
 
 const beautiesSlice = createSlice({
@@ -24,7 +43,17 @@ const beautiesSlice = createSlice({
   reducers: {},
   extraReducers: builder => {
     builder.addCase(fetchBeauties.fulfilled, (state, action) => {
-      return action.payload.beauties
+      state.data = action.payload.beauties
+    })
+    builder.addCase(fetchSaveBeauties.pending, (state, action) => {
+      state.isFetching = true
+    })
+    builder.addCase(fetchSaveBeauties.fulfilled, (state, action) => {
+      state.isFetching = false
+    })
+    builder.addCase(fetchSaveBeauties.rejected, (state, action) => {
+      state.isFetching = false
+      // TODO: error handling
     })
   }
 })
