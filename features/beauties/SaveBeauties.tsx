@@ -7,7 +7,7 @@ const SaveBeauties = () => {
   const dispatch = useDispatch()
   const handleSaveBeauties = useCallback(() => {
     dispatch(fetchSaveBeauties())
-  }, [])
+  }, [dispatch])
 
   return <button onClick={handleSaveBeauties}>Save Beauties</button>
 }

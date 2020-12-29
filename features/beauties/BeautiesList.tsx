@@ -17,7 +17,7 @@ const BeautiesList = () => {
       setInitialized(true)
       dispatch(fetchBeauties())
     }
-  }, [initialized])
+  }, [initialized, dispatch])
 
   return (
     <ul>
