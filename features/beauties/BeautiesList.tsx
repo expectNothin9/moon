@@ -8,7 +8,7 @@ const BeautiesList = () => {
   const [initialized, setInitialized] = useState(false)
   const dispatch = useDispatch()
   const beauties: Beauty[] = useSelector((state: RootState) => {
-    console.log(state.beauties.data)
+    // console.log(state.beauties.data)
     return Object.values(state.beauties.data)
   })
 

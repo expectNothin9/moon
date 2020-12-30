@@ -21,3 +21,4 @@ yarn start  # Runs the built app in production mode
 - npm vs yarn [cheat sheet](https://shift.infinite.red/npm-vs-yarn-cheat-sheet-8755b092e5cc)
 - [nanoSQL 2](https://nanosql.io/query/) with [Redis adapter](https://nanosql.io/adapters/redis.html)
 - [eslint + prettier](https://dev.to/onygami/eslint-and-prettier-for-react-apps-bonus-next-js-and-typescript-3e46) on Next.js and Typescript
+- [puppeteer API docs](https://pptr.dev/)
