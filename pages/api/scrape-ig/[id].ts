@@ -57,7 +57,7 @@ const scrapeBeautiesInfo = async (page: Page, postIds: string[]) => {
       let found = null
 
       // scrape image
-      const imgPattern = /w,(.*) 1080w/
+      const imgPattern = /750w,(.*) 1080w/
       const srcSet = document.querySelector('article div > img').getAttribute('srcset')
       found = srcSet.match(imgPattern)
       if (found) {
@@ -120,16 +120,14 @@ const scrapeIg = async (req: NextApiRequest, res: NextApiResponse) => {
   // scrape beauties information
   try {
     const beauties = await scrapeBeautiesInfo(page, postIds)
-    console.log(beauties)
+    return res.json({ beauties })
   } catch (error) {
     await page.screenshot({ path: SNAPSHOT_PATH })
     return res.status(500).json({
       statusCode: 500,
-      message: 'Scrape beauty post ids failed'
+      message: 'Scrape beauties information failed'
     })
   }
-
-  res.json({ target: id })
 }
 
 const handler = (req: NextApiRequest, res: NextApiResponse) => {

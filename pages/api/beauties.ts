@@ -30,7 +30,7 @@ const connectMiddleware = (handler) => async (req: NextApiRequest, res: NextApiR
 }
 
 const saveBeauties = async (_: NextApiRequest, res: NextApiResponse) => {
-  const data = Object.values(dummyData.beauties)
+  const data = dummyData.beauties
   const beauties = await nSQL('beauties').query('upsert', data).exec()
   res.status(201).json({ beauties })
 }
