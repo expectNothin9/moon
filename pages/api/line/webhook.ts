@@ -18,14 +18,15 @@ function runMiddleware(req: NextApiRequest, res: NextApiResponse, fn) {
       if (result instanceof Error) {
         return reject(result)
       }
-
       return resolve(result)
     })
   })
 }
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
+  console.log('/api/line/webhook')
   await runMiddleware(req, res, lineMiddleware)
+  console.log('after lineMiddleware')
   Promise.all(
     req.body.events.map(async (event: WebhookEvent) => {
       if (event.type !== 'message' || event.message.type !== 'text') {
