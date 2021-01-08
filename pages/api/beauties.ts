@@ -37,7 +37,10 @@ const saveBeauties = async (_: NextApiRequest, res: NextApiResponse) => {
 
 const listBeauties = async (_: NextApiRequest, res: NextApiResponse) => {
   const beauties = await nSQL('beauties').query('select').exec()
-  console.log('listBeauties beauties', beauties)
+  console.log(
+    'listBeauties beauties',
+    beauties.map((beauty) => beauty.instagram)
+  )
   res.json({ beauties })
 }
 
