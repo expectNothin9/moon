@@ -65,18 +65,20 @@ const scrapeBeautiesInfo = async (page: Page, postIds: string[]) => {
       }
 
       // scrape IG id
-      const igIdPattern = /\/(.*)\//
-      const href = document
-        .querySelector('article [role=menuitem] h2 + span a')
-        .getAttribute('href')
-      found = href.match(igIdPattern)
-      if (found) {
-        info.instagram = found[1]
-      }
+      const igIdPattern = /^@(.*)/
+      const aTags = document.querySelectorAll('article [role=menuitem] h2 + span a')
+      aTags.forEach((aTag) => {
+        found = aTag.innerHTML.match(igIdPattern)
+        if (found) {
+          info.instagram = found[1]
+        }
+      })
       return info
     })
-    beauty.id = postId
-    beauties.push(beauty)
+    if (beauty.instagram !== '') {
+      beauty.id = postId
+      beauties.push(beauty)
+    }
   }
   return beauties
 }

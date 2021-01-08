@@ -1,6 +1,174 @@
 export default {
   beauties: [
     {
+      id: 'CI2lhaFHlm3',
+      instagram: 'carinalee1105',
+      images: [
+        'https://instagram.ftpe12-2.fna.fbcdn.net/v/t51.2885-15/e35/p1080x1080/131395236_393878958336083_7893744875791018468_n.jpg?_nc_ht=instagram.ftpe12-2.fna.fbcdn.net&_nc_cat=111&_nc_ohc=bgRwOKOjNrkAX9KzNOm&tp=1&oh=c20faa1cd865b36f6b340e7fee5622fd&oe=602359CD'
+      ]
+    },
+    {
+      id: 'CI14BE-HLHt',
+      instagram: 'melissasaxxiv',
+      images: [
+        'https://instagram.ftpe12-1.fna.fbcdn.net/v/t51.2885-15/e35/131309202_219488809761039_4852130068397171630_n.jpg?_nc_ht=instagram.ftpe12-1.fna.fbcdn.net&_nc_cat=103&_nc_ohc=r1_3Q8fhxIQAX_R78XL&tp=1&oh=e3a46379e42fe08e8db776d1c82650e8&oe=60216105'
+      ]
+    },
+    {
+      id: 'CIxeF2LHfuT',
+      instagram: 'verakaooo',
+      images: [
+        'https://instagram.ftpe12-2.fna.fbcdn.net/v/t51.2885-15/e35/p1080x1080/130890848_213935566953142_8133463908173772544_n.jpg?_nc_ht=instagram.ftpe12-2.fna.fbcdn.net&_nc_cat=110&_nc_ohc=epr__j2fkf8AX9Xr04f&tp=1&oh=7ffb295e602bf57616f8298ce1ce34eb&oe=602218AC'
+      ]
+    },
+    {
+      id: 'CIxcyuLnYsF',
+      instagram: 'b__728ao',
+      images: [
+        'https://instagram.ftpe12-1.fna.fbcdn.net/v/t51.2885-15/e35/131009315_226982622352783_1898524146415062367_n.jpg?_nc_ht=instagram.ftpe12-1.fna.fbcdn.net&_nc_cat=107&_nc_ohc=Wj8hdJRHTFIAX-mlQ7e&tp=1&oh=72d2f62a7790eadb172365b31685aba4&oe=60227759'
+      ]
+    },
+    {
+      id: 'CIxcoGqn-5Z',
+      instagram: 'yannnnn_9',
+      images: [
+        'https://instagram.ftpe12-2.fna.fbcdn.net/v/t51.2885-15/e35/p1080x1080/131336012_152145189589501_7128272952715557031_n.jpg?_nc_ht=instagram.ftpe12-2.fna.fbcdn.net&_nc_cat=101&_nc_ohc=SI-pnatIf14AX-3B2AZ&tp=1&oh=095b1b1af150a15ac3ab7242378b565e&oe=6020E97A'
+      ]
+    },
+    {
+      id: 'CIptittn7r-',
+      instagram: 'peipei___j',
+      images: [
+        'https://instagram.ftpe12-1.fna.fbcdn.net/v/t51.2885-15/e35/p1080x1080/130442320_164612498691582_4080692155480166718_n.jpg?_nc_ht=instagram.ftpe12-1.fna.fbcdn.net&_nc_cat=106&_nc_ohc=ZcEurVYpv68AX9d7tvv&tp=1&oh=ec844ab267b9a40e9bfee406a08034b4&oe=6021D36F'
+      ]
+    },
+    {
+      id: 'CIn0VcmH-eT',
+      instagram: 'kristina6.23',
+      images: [
+        'https://instagram.ftpe12-1.fna.fbcdn.net/v/t51.2885-15/e35/p1080x1080/130117511_174890051048164_3725753661346970517_n.jpg?_nc_ht=instagram.ftpe12-1.fna.fbcdn.net&_nc_cat=104&_nc_ohc=lfmGLfe_FqgAX8NnaKb&tp=1&oh=153f8c2fdc4588a50a97d03d9a6d375a&oe=6022FC4E'
+      ]
+    },
+    {
+      id: 'CIkl0_wHLHl',
+      instagram: '993a9',
+      images: [
+        'https://instagram.ftpe12-2.fna.fbcdn.net/v/t51.2885-15/e35/p1080x1080/130453120_374293930539024_8636544064152452062_n.jpg?_nc_ht=instagram.ftpe12-2.fna.fbcdn.net&_nc_cat=100&_nc_ohc=IhdRHHgQHWUAX9X6Ejy&tp=1&oh=192f0848c4314aa8c7854e3ce26f5689&oe=6020A73B'
+      ]
+    },
+    {
+      id: 'CIh_FJhniEe',
+      instagram: 'tammyxu_1015',
+      images: [
+        'https://instagram.ftpe12-1.fna.fbcdn.net/v/t51.2885-15/e35/p1080x1080/130423357_190767439377860_3785195638661499445_n.jpg?_nc_ht=instagram.ftpe12-1.fna.fbcdn.net&_nc_cat=108&_nc_ohc=pvjpwsbfGsEAX8m-_nD&tp=1&oh=e2e6b0df35e63f1fc6d387fdb5971667&oe=6023544B'
+      ]
+    },
+    {
+      id: 'CIfar9ZnIu6',
+      instagram: 'tsaiyoyo0728',
+      images: [
+        'https://instagram.ftpe12-1.fna.fbcdn.net/v/t51.2885-15/e35/p1080x1080/129790846_384216276219771_6271027194454684085_n.jpg?_nc_ht=instagram.ftpe12-1.fna.fbcdn.net&_nc_cat=103&_nc_ohc=e0jZxm-IXhAAX-Ltu3t&tp=1&oh=342266677142880d55707297812f9d3d&oe=60221E0D'
+      ]
+    },
+    {
+      id: 'CIfLE4knkdF',
+      instagram: 'oh_kiyomi',
+      images: [
+        'https://instagram.ftpe12-2.fna.fbcdn.net/v/t51.2885-15/e35/p1080x1080/130090865_1087469625028833_8599711034213846053_n.jpg?_nc_ht=instagram.ftpe12-2.fna.fbcdn.net&_nc_cat=109&_nc_ohc=Yvl5oI_lsUMAX_z6pz6&tp=1&oh=3cc58a4cc3e18feb6cbcb69bbb6b3e0a&oe=6021A07B'
+      ]
+    },
+    {
+      id: 'CIadv62n97Y',
+      instagram: 'jiahsinhsu',
+      images: [
+        'https://instagram.ftpe12-2.fna.fbcdn.net/v/t51.2885-15/e35/p1080x1080/129048379_437476327245145_7645122037223957206_n.jpg?_nc_ht=instagram.ftpe12-2.fna.fbcdn.net&_nc_cat=101&_nc_ohc=m0EKcOV7mXQAX-_lbuU&tp=1&oh=efd75430e282db45ba59da1e762e828a&oe=602293B9'
+      ]
+    },
+    {
+      id: 'CIXr0jzHd8a',
+      instagram: 'qoo.kimmy',
+      images: [
+        'https://instagram.ftpe12-2.fna.fbcdn.net/v/t51.2885-15/e35/p1080x1080/129086906_823661331764362_1245653512683751353_n.jpg?_nc_ht=instagram.ftpe12-2.fna.fbcdn.net&_nc_cat=110&_nc_ohc=pY-7Jk0DZPgAX9Ccmx5&tp=1&oh=c934fbe70df591a0c6e8d8d531011d09&oe=60219E7A'
+      ]
+    },
+    {
+      id: 'CIVHsLNHfK0',
+      instagram: 'rachellievava',
+      images: [
+        'https://instagram.ftpe12-2.fna.fbcdn.net/v/t51.2885-15/e35/p1080x1080/128958185_3456311907757847_8362672217021368336_n.jpg?_nc_ht=instagram.ftpe12-2.fna.fbcdn.net&_nc_cat=111&_nc_ohc=AyaDLxEP_uUAX-fZLEZ&tp=1&oh=3b838c13a609dcfe2de63b6962c35be8&oe=60202EF1'
+      ]
+    },
+    {
+      id: 'CISiepmHqdB',
+      instagram: 'kziiee',
+      images: [
+        'https://instagram.ftpe12-2.fna.fbcdn.net/v/t51.2885-15/e35/p1080x1080/128467014_131153028591841_6161495877222459235_n.jpg?_nc_ht=instagram.ftpe12-2.fna.fbcdn.net&_nc_cat=101&_nc_ohc=oOX7B4QGPdUAX8_FzKp&tp=1&oh=86dba94c95464ac4929ffe439bf4aada&oe=601FFF73'
+      ]
+    },
+    {
+      id: 'CIP93Enn1sk',
+      instagram: 'tu1519',
+      images: [
+        'https://instagram.ftpe12-2.fna.fbcdn.net/v/t51.2885-15/e35/p1080x1080/128271478_2073509589452894_4713776431105007392_n.jpg?_nc_ht=instagram.ftpe12-2.fna.fbcdn.net&_nc_cat=102&_nc_ohc=On-SsVK5HPcAX8EUttK&tp=1&oh=a17141561ef6fc849ab47b4de8601957&oe=6020157D'
+      ]
+    },
+    {
+      id: 'CINammWnJKc',
+      instagram: 'angiewan1120',
+      images: [
+        'https://instagram.ftpe12-2.fna.fbcdn.net/v/t51.2885-15/e35/127764244_221069509429366_3330904439129549721_n.jpg?_nc_ht=instagram.ftpe12-2.fna.fbcdn.net&_nc_cat=110&_nc_ohc=6uu4kf-s14sAX_Xq04J&tp=1&oh=2dd3aec557d191c21c1eb15c684eabe6&oe=6021B3F5'
+      ]
+    },
+    {
+      id: 'CILILPan8-4',
+      instagram: 'catherine__0723',
+      images: [
+        'https://instagram.ftpe12-1.fna.fbcdn.net/v/t51.2885-15/e35/p1080x1080/128049571_418339342523394_7631087936465821398_n.jpg?_nc_ht=instagram.ftpe12-1.fna.fbcdn.net&_nc_cat=106&_nc_ohc=EnHMWnwrffwAX-oy_Gy&tp=1&oh=e07fc5a510c7943ac61e6d62d5c08307&oe=601F93A6'
+      ]
+    },
+    {
+      id: 'CIIdeQJH8HP',
+      instagram: '_chore_',
+      images: [
+        'https://instagram.ftpe12-1.fna.fbcdn.net/v/t51.2885-15/e35/p1080x1080/127609929_293436198669844_649513454305910907_n.jpg?_nc_ht=instagram.ftpe12-1.fna.fbcdn.net&_nc_cat=104&_nc_ohc=_wWNzQjrxfYAX_ppo-N&tp=1&oh=effcda22c7446745bcc6170e61cadbc2&oe=6021C18F'
+      ]
+    },
+    {
+      id: 'CIFz5rXHfpX',
+      instagram: 'irennn.e',
+      images: [
+        'https://instagram.ftpe12-1.fna.fbcdn.net/v/t51.2885-15/e35/p1080x1080/127822893_800826930648043_9001176962434505314_n.jpg?_nc_ht=instagram.ftpe12-1.fna.fbcdn.net&_nc_cat=107&_nc_ohc=KB-_aCQ8aKcAX8f-LwG&tp=1&oh=f1f070dbd0b9d3d763cf94c6d812d771&oe=601FA3BB'
+      ]
+    },
+    {
+      id: 'CIDNq-ZnfHO',
+      instagram: 'littlesshine_030',
+      images: [
+        'https://instagram.ftpe12-2.fna.fbcdn.net/v/t51.2885-15/e35/p1080x1080/127134056_817309589018664_8116980940655278215_n.jpg?_nc_ht=instagram.ftpe12-2.fna.fbcdn.net&_nc_cat=100&_nc_ohc=k8RW-kUIrH4AX9j-XRw&tp=1&oh=99f9db0556f5b95f8b9b9d23ce1a2313&oe=601FAB2D'
+      ]
+    },
+    {
+      id: 'CICY16FHco4',
+      instagram: 'flywith_savannah',
+      images: [
+        'https://instagram.ftpe12-2.fna.fbcdn.net/v/t51.2885-15/e35/p1080x1080/127153892_672744240278998_5210052207068794649_n.jpg?_nc_ht=instagram.ftpe12-2.fna.fbcdn.net&_nc_cat=110&_nc_ohc=skXdXbbjT2wAX902_-L&tp=1&oh=29f71a79d1f66ae83095669734974b33&oe=6020422D'
+      ]
+    },
+    {
+      id: 'CIAnjGLHotM',
+      instagram: 'yuting0116_a',
+      images: [
+        'https://instagram.ftpe12-2.fna.fbcdn.net/v/t51.2885-15/e35/p1080x1080/127018710_737618697109871_6312166895299158733_n.jpg?_nc_ht=instagram.ftpe12-2.fna.fbcdn.net&_nc_cat=111&_nc_ohc=MsPWZFF4nAEAX_wzTCq&tp=1&oh=9b54eae9619b8adc78e2ad4d080b8eb0&oe=601FBA25'
+      ]
+    },
+    {
+      id: 'CH98VuNHsdw',
+      instagram: 'june_night_',
+      images: [
+        'https://instagram.ftpe12-1.fna.fbcdn.net/v/t51.2885-15/e35/p1080x1080/126858333_732909200671432_4288179092775728596_n.jpg?_nc_ht=instagram.ftpe12-1.fna.fbcdn.net&_nc_cat=104&_nc_ohc=TYHwk7HOLFgAX_sdvM7&tp=1&oh=9f7d654400191974f114e37d68e3b63f&oe=60205D5E'
+      ]
+    },
+    {
       id: 'CJumf-mHGH6',
       instagram: 'jessica01_20',
       images: [
