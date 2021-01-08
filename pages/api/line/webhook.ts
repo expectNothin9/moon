@@ -45,6 +45,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
         const { beauties } = await fetch(API_BEAUTIES).then((resp) => resp.json())
         const shuffledBeauties = shuffle(beauties)
         const candidates = shuffledBeauties.slice(0, 2)
+        console.log(candidates)
         const candidateIds = candidates.map((candidate) => candidate.id).join(',')
         return client.replyMessage(event.replyToken, {
           type: 'template',
@@ -53,7 +54,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
             type: 'image_carousel',
             columns: candidates.map((candidate) => {
               return {
-                imageUrl: candidate.image,
+                imageUrl: candidate.images[0],
                 action: {
                   type: 'postback',
                   label: `@${candidate.instagram}`,
