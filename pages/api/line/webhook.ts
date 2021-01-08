@@ -69,7 +69,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
                   action: {
                     type: 'postback',
                     label: '@kristina6.23',
-                    data: 'action=beauty-pageant&match=CJm99Punf5R,CIn0VcmH-eT&win=CIn0VcmH-eT'
+                    data: 'action=beauty-pageant&match=&win='
                   }
                 }
               ]
