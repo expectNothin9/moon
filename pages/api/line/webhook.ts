@@ -48,22 +48,26 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
         console.log(candidates)
         const candidateIds = candidates.map((candidate) => candidate.id).join(',')
         return client.replyMessage(event.replyToken, {
-          type: 'template',
-          altText: 'beauty-pageant',
-          template: {
-            type: 'image_carousel',
-            columns: candidates.map((candidate) => {
-              return {
-                imageUrl: candidate.images[0],
-                action: {
-                  type: 'postback',
-                  label: `@${candidate.instagram}`,
-                  data: `action=beauty-pageant&match=${candidateIds}&win=${candidate.id}`
-                }
-              }
-            })
-          }
+          type: 'text',
+          text: candidateIds
         })
+        // return client.replyMessage(event.replyToken, {
+        //   type: 'template',
+        //   altText: 'beauty-pageant',
+        //   template: {
+        //     type: 'image_carousel',
+        //     columns: candidates.map((candidate) => {
+        //       return {
+        //         imageUrl: candidate.images[0],
+        //         action: {
+        //           type: 'postback',
+        //           label: `@${candidate.instagram}`,
+        //           data: `action=beauty-pageant&match=${candidateIds}&win=${candidate.id}`
+        //         }
+        //       }
+        //     })
+        //   }
+        // })
       } else {
         return Promise.resolve(null)
       }
