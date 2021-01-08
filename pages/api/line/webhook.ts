@@ -1,6 +1,10 @@
 import { Client, middleware, WebhookEvent } from '@line/bot-sdk'
 import type { NextApiRequest, NextApiResponse } from 'next'
 
+import { shuffle } from '../../../util/array'
+
+const API_BEAUTIES = process.env.API_BEAUTIES
+
 const botConfig = {
   channelAccessToken: process.env.CHANNEL_ACCESS_TOKEN,
   channelSecret: process.env.CHANNEL_SECRET
@@ -24,18 +28,40 @@ function runMiddleware(req: NextApiRequest, res: NextApiResponse, fn) {
 }
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
-  console.log('/api/line/webhook')
+  if (req.method !== 'POST') {
+    return res.status(404).json({
+      statusCode: 404,
+      message: 'Not Found'
+    })
+  }
+
   await runMiddleware(req, res, lineMiddleware)
-  console.log('after lineMiddleware')
   Promise.all(
     req.body.events.map(async (event: WebhookEvent) => {
       if (event.type !== 'message' || event.message.type !== 'text') {
         return Promise.resolve(null)
       }
       if (event.message.text === '/test') {
+        const { beauties } = await fetch(API_BEAUTIES).then((resp) => resp.json())
+        const shuffledBeauties = shuffle(beauties)
+        const candidates = shuffledBeauties.slice(0, 2)
+        const candidateIds = candidates.map((candidate) => candidate.id).join(',')
         return client.replyMessage(event.replyToken, {
-          type: 'text',
-          text: 'test?'
+          type: 'template',
+          altText: 'beauty-pageant',
+          template: {
+            type: 'image_carousel',
+            columns: candidates.map((candidate) => {
+              return {
+                imageUrl: candidate.image,
+                action: {
+                  type: 'postback',
+                  label: `@${candidate.instagram}`,
+                  data: `action=beauty-pageant&match=${candidateIds}&win=${candidate.id}`
+                }
+              }
+            })
+          }
         })
       } else {
         return Promise.resolve(null)
