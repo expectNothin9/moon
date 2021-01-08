@@ -1,13 +1,13 @@
 import { Client, middleware, WebhookEvent } from '@line/bot-sdk'
 import type { NextApiRequest, NextApiResponse } from 'next'
 
-const config = {
+const botConfig = {
   channelAccessToken: process.env.CHANNEL_ACCESS_TOKEN,
   channelSecret: process.env.CHANNEL_SECRET
 }
 
-const client = new Client(config)
-const lineMiddleware = middleware(config)
+const client = new Client(botConfig)
+const lineMiddleware = middleware(botConfig)
 
 // https://nextjs.org/docs/api-routes/api-middlewares
 // Helper method to wait for a middleware to execute before continuing
@@ -42,6 +42,14 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
       }
     })
   ).then((result) => res.json(result))
+}
+
+// https://line.github.io/line-bot-sdk-nodejs/api-reference/middleware.html#usage
+// https://nextjs.org/docs/api-routes/api-middlewares
+export const config = {
+  api: {
+    bodyParser: false
+  }
 }
 
 export default handler
