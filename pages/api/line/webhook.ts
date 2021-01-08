@@ -47,27 +47,28 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
         const candidates = shuffledBeauties.slice(0, 2)
         console.log(candidates)
         const candidateIds = candidates.map((candidate) => candidate.id).join(',')
-        return client.replyMessage(event.replyToken, {
-          type: 'text',
-          text: candidateIds
-        })
-        // return client.replyMessage(event.replyToken, {
-        //   type: 'template',
-        //   altText: 'beauty-pageant',
-        //   template: {
-        //     type: 'image_carousel',
-        //     columns: candidates.map((candidate) => {
-        //       return {
-        //         imageUrl: candidate.images[0],
-        //         action: {
-        //           type: 'postback',
-        //           label: `@${candidate.instagram}`,
-        //           data: `action=beauty-pageant&match=${candidateIds}&win=${candidate.id}`
-        //         }
-        //       }
-        //     })
-        //   }
-        // })
+        return client
+          .replyMessage(event.replyToken, {
+            type: 'template',
+            altText: 'beauty-pageant',
+            template: {
+              type: 'image_carousel',
+              columns: candidates.map((candidate) => {
+                return {
+                  imageUrl: candidate.images[0],
+                  action: {
+                    type: 'postback',
+                    label: `@${candidate.instagram}`,
+                    data: `action=beauty-pageant&match=${candidateIds}&win=${candidate.id}`
+                  }
+                }
+              })
+            }
+          })
+          .catch((error) => {
+            console.log(error)
+            return null
+          })
       } else {
         return Promise.resolve(null)
       }
