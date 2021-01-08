@@ -3,5 +3,5 @@
     "next/babel",
     "@babel/preset-flow"
   ],
-  "plugins": []
+  "plugins": [["styled-components", { "ssr": true }]]
 }
