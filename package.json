@@ -9,6 +9,7 @@
     "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc"
   },
   "dependencies": {
+    "@line/bot-sdk": "^7.2.0",
     "@nano-sql/adapter-redis": "^2.0.7",
     "@nano-sql/core": "^2.3.7",
     "@reduxjs/toolkit": "^1.3.6",
