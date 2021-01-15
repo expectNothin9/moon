@@ -90,7 +90,10 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
             fetch(`${API_BEAUTIES}/${parsedData.win}`).then((resp) => resp.json())
           ])
           console.log(userProfile, apiResp)
-          return Promise.resolve(null)
+          return client.replyMessage(event.replyToken, {
+            type: 'text',
+            text: `${userProfile.displayName} ♡ https://instagr.am/${apiResp.beauty.instagram}`
+          })
         }
         default:
           return Promise.resolve(null)
