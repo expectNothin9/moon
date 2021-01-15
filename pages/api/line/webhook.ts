@@ -38,41 +38,51 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   await runMiddleware(req, res, lineMiddleware)
   Promise.all(
     req.body.events.map(async (event: WebhookEvent) => {
-      if (event.type !== 'message' || event.message.type !== 'text') {
-        return Promise.resolve(null)
-      }
-      if (event.message.text === '/test') {
-        const { beauties } = await fetch(API_BEAUTIES).then((resp) => resp.json())
-        const shuffledBeauties = shuffle(beauties)
-        const candidates = shuffledBeauties.slice(0, 2)
-        console.log(candidates)
-        const candidateIds = candidates.map((candidate) => candidate.id).join(',')
-        return client
-          .replyMessage(event.replyToken, {
-            type: 'template',
-            altText: 'beauty-pageant',
-            template: {
-              type: 'image_carousel',
-              columns: candidates.map((candidate) => {
-                // TODO: implement mask logic
-                const maskedIgId = `@${candidate.instagram}`.slice(0, 12)
-                return {
-                  imageUrl: candidate.images[0],
-                  action: {
-                    type: 'postback',
-                    label: maskedIgId,
-                    data: `action=beauty-pageant&match=${candidateIds}&win=${candidate.id}`
-                  }
+      switch (event.type) {
+        case 'message': {
+          if (event.message.type !== 'text') {
+            return Promise.resolve(null)
+          }
+          if (event.message.text === '/test') {
+            const { beauties } = await fetch(API_BEAUTIES).then((resp) => resp.json())
+            const shuffledBeauties = shuffle(beauties)
+            const candidates = shuffledBeauties.slice(0, 2)
+            console.log(candidates)
+            const candidateIds = candidates.map((candidate) => candidate.id).join(',')
+            return client
+              .replyMessage(event.replyToken, {
+                type: 'template',
+                altText: 'beauty-pageant',
+                template: {
+                  type: 'image_carousel',
+                  columns: candidates.map((candidate) => {
+                    // TODO: implement mask logic
+                    const maskedIgId = `@${candidate.instagram}`.slice(0, 12)
+                    return {
+                      imageUrl: candidate.images[0],
+                      action: {
+                        type: 'postback',
+                        label: maskedIgId,
+                        data: `action=beauty-pageant&match=${candidateIds}&win=${candidate.id}`
+                      }
+                    }
+                  })
                 }
               })
-            }
-          })
-          .catch((error) => {
-            console.log(error)
-            return null
-          })
-      } else {
-        return Promise.resolve(null)
+              .catch((error) => {
+                console.log(error)
+                return null
+              })
+          } else {
+            return Promise.resolve(null)
+          }
+        }
+        case 'postback': {
+          console.log('postbak event', event)
+          return Promise.resolve(null)
+        }
+        default:
+          return Promise.resolve(null)
       }
     })
   ).then((result) => res.json(result))
