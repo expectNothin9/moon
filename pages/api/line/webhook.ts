@@ -1,5 +1,6 @@
 import { Client, middleware, WebhookEvent } from '@line/bot-sdk'
 import type { NextApiRequest, NextApiResponse } from 'next'
+import querystring from 'querystring'
 
 import { shuffle } from '../../../util/array'
 
@@ -79,6 +80,16 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
         }
         case 'postback': {
           console.log('postbak event', event)
+          const {
+            source,
+            postback: { data }
+          } = event
+          const parsedData = querystring.parse(data)
+          const [userProfile, apiResp] = await Promise.all([
+            client.getProfile(source.userId),
+            fetch(`${API_BEAUTIES}/${parsedData.win}`).then((resp) => resp.json())
+          ])
+          console.log(userProfile, apiResp)
           return Promise.resolve(null)
         }
         default:
