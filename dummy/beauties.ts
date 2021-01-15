@@ -335,6 +335,48 @@ export default {
       images: [
         'https://instagram.ftpe12-1.fna.fbcdn.net/v/t51.2885-15/e35/p1080x1080/129745327_665427261003150_1268165138661069468_n.jpg?_nc_ht=instagram.ftpe12-1.fna.fbcdn.net&_nc_cat=106&_nc_ohc=sAKnMsQHPsQAX-mWsuK&tp=1&oh=773dc84cd3a4a6438740285a631b2fc7&oe=6020C9E6'
       ]
+    },
+    {
+      id: 'CKBucZnHhoU',
+      instagram: 'mini147.5',
+      images: [
+        'https://instagram.ftpe12-2.fna.fbcdn.net/v/t51.2885-15/e15/138414003_1090370548094764_7318856630137797737_n.jpg?_nc_ht=instagram.ftpe12-2.fna.fbcdn.net&_nc_cat=104&_nc_ohc=gdpvrqQwuIMAX-Y0QpD&tp=1&oh=d83f6a6b4d183dfc60d3a51645ca8dce&oe=602B95B8'
+      ]
+    },
+    {
+      id: 'CJ-KZPTHGd7',
+      instagram: 'personal_trainer_julia',
+      images: [
+        'https://instagram.ftpe12-2.fna.fbcdn.net/v/t51.2885-15/e35/p1080x1080/137545781_216947866716134_8285783843389395284_n.jpg?_nc_ht=instagram.ftpe12-2.fna.fbcdn.net&_nc_cat=102&_nc_ohc=V4U5_h7IuXoAX9ijUqU&tp=1&oh=b0bb232e786cd337a4794bc15305f07d&oe=602AA7C7'
+      ]
+    },
+    {
+      id: 'CJ7kik2HsSv',
+      instagram: 'tsukiyina',
+      images: [
+        'https://instagram.ftpe12-2.fna.fbcdn.net/v/t51.2885-15/e15/137080871_424259968991816_6505743751864672553_n.jpg?_nc_ht=instagram.ftpe12-2.fna.fbcdn.net&_nc_cat=108&_nc_ohc=7A05HCIAEjoAX_b6xMs&tp=1&oh=73fb39503e7e52846bca1ef18ab502eb&oe=602C96D2'
+      ]
+    },
+    {
+      id: 'CJ4_m1Un6ie',
+      instagram: 'hi_0______0',
+      images: [
+        'https://instagram.ftpe12-2.fna.fbcdn.net/v/t51.2885-15/e15/136735868_109464204424383_1355707357510184993_n.jpg?_nc_ht=instagram.ftpe12-2.fna.fbcdn.net&_nc_cat=103&_nc_ohc=c2Bs8JeAgv4AX_J_Jah&tp=1&oh=88d1d5d4aaced30ed728d5d9e1cb10e5&oe=602BEC0F'
+      ]
+    },
+    {
+      id: 'CJ3jTIMnI7G',
+      instagram: 'nicalin0707',
+      images: [
+        'https://instagram.ftpe12-2.fna.fbcdn.net/v/t51.2885-15/e15/137628505_400995190976314_7416677783481599082_n.jpg?_nc_ht=instagram.ftpe12-2.fna.fbcdn.net&_nc_cat=110&_nc_ohc=T9BxIguMlD8AX-4dw3e&tp=1&oh=89eba653cf1928b4488eb78519f3a6f0&oe=602B10C9'
+      ]
+    },
+    {
+      id: 'CJ2TvHDngDo',
+      instagram: 'irachen',
+      images: [
+        'https://instagram.ftpe12-2.fna.fbcdn.net/v/t51.2885-15/fr/e15/s1080x1080/136986455_1298665463832275_6539538473832272117_n.jpg?_nc_ht=instagram.ftpe12-2.fna.fbcdn.net&_nc_cat=111&_nc_ohc=-rFHynVxt3QAX-GXppW&tp=1&oh=db4472ad521589a5494a4e634f3815ef&oe=602B70D9'
+      ]
     }
   ]
 }
