@@ -22,3 +22,4 @@ yarn start  # Runs the built app in production mode
 - [nanoSQL 2](https://nanosql.io/query/) with [Redis adapter](https://nanosql.io/adapters/redis.html)
 - [eslint + prettier](https://dev.to/onygami/eslint-and-prettier-for-react-apps-bonus-next-js-and-typescript-3e46) on Next.js and Typescript
 - [puppeteer API docs](https://pptr.dev/)
+- [OpenLayers](https://openlayers.org/)

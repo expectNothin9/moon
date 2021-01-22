@@ -1,6 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit'
 
 import beautiesReducer from './features/beauties/beautiesSlice'
+import housesReducer from './features/houses/housesSlices'
 import clockReducer from './lib/slices/clockSlice'
 import counterReducer from './lib/slices/counterSlice'
 import notesReducer from './lib/slices/notesSlice'
@@ -10,7 +11,8 @@ const store = configureStore({
     counter: counterReducer,
     clock: clockReducer,
     notes: notesReducer,
-    beauties: beautiesReducer
+    beauties: beautiesReducer,
+    houses: housesReducer
   },
   devTools: true
 })
