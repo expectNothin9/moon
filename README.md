@@ -4,7 +4,7 @@ The Moon is Earth's only proper natural satellite. It is the the largest natural
 
 ## Todo
 
-- [ ] nanoSQL with Redis on Heroku
+- [ ] initial state of redux in Next.js ([next-redux-wrapper](https://github.com/kirill-konshin/next-redux-wrapper))
 
 ## Development
 
