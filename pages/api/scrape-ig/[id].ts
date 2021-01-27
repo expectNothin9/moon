@@ -2,6 +2,8 @@ import type { NextApiRequest, NextApiResponse } from 'next'
 import path from 'path'
 import puppeteer, { Page } from 'puppeteer'
 
+import dummy from '../../../dummy/beauties'
+
 const SNAPSHOT_PATH = path.join(__dirname, '../../..', 'public/snapshot.png')
 console.log(SNAPSHOT_PATH)
 
@@ -48,6 +50,9 @@ const scrapeBeautyPostIds = async (page: Page, targetUrl: string): Promise<strin
 const scrapeBeautiesInfo = async (page: Page, postIds: string[]) => {
   const beauties = []
   for (const postId of postIds) {
+    if (dummy.beauties.find((beauty) => beauty.id === postId)) {
+      continue
+    }
     const postUrl = `${IG_URL}p/${postId}/`
     await page.goto(postUrl, {
       waitUntil: ['load', 'networkidle0', 'domcontentloaded']
