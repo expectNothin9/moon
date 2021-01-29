@@ -7,9 +7,6 @@ import { RootState } from '../../store'
 import { Beauty, fetchBeauties } from './beautiesSlice'
 
 const StyledBeautiesList = styled.ul`
-  --space-m: 12px;
-  --space-s: 8px;
-  --space-xs: 4px;
   padding: var(--space-m);
   display: flex;
   flex-wrap: wrap;

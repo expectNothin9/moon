@@ -8,8 +8,8 @@ const BeautiesPage = () => {
   const appEnv = useSelector((state: RootState) => state.shared.appEnv)
   return (
     <>
-      <BeautiesList />
       {appEnv === 'local' && <SaveBeauties />}
+      <BeautiesList />
     </>
   )
 }
