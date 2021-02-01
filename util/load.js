@@ -1,4 +1,4 @@
-export const loadCss = async (path: string) => {
+export const loadCss = async (path) => {
   return new Promise((resolve) => {
     try {
       console.log('start to load')
@@ -22,7 +22,7 @@ export const loadCss = async (path: string) => {
   })
 }
 
-export const loadJs = async (path: string) => {
+export const loadJs = async (path) => {
   return new Promise((resolve) => {
     try {
       console.log('start to load')

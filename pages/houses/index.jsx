@@ -5,7 +5,6 @@ import { shallowEqual, useDispatch, useSelector } from 'react-redux'
 import styled from 'styled-components'
 
 import { setMapInitialized, setSelectedId } from '../../features/houses/housesSlices'
-import { RootState } from '../../store'
 import { loadCss, loadJs } from '../../util/load'
 
 const OL_CSS =
@@ -48,7 +47,7 @@ const StyledMap = styled.section`
 const Map = () => {
   const map = useRef()
   const dispatch = useDispatch()
-  const { mapInitialized, landmarks } = useSelector((state: RootState) => {
+  const { mapInitialized, landmarks } = useSelector((state) => {
     const { map, landmarks } = state.houses
     return {
       mapInitialized: map.initialized,
@@ -146,7 +145,7 @@ const StyledInformation = styled.section`
 `
 const Information = () => {
   const dispatch = useDispatch()
-  const { selectedLandmark } = useSelector((state: RootState) => {
+  const { selectedLandmark } = useSelector((state) => {
     const { landmarks, selectedId } = state.houses
     return {
       selectedLandmark: landmarks.find((landmark) => landmark.id === selectedId)

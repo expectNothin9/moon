@@ -1,6 +1,5 @@
-import type { NextApiRequest, NextApiResponse } from 'next'
 import path from 'path'
-import puppeteer, { Page } from 'puppeteer'
+import puppeteer from 'puppeteer'
 
 import dummy from '../../../dummy/beauties'
 
@@ -14,7 +13,7 @@ const IG = {
   pwd: process.env.IG_PWD
 }
 
-const loginIg = async (page: Page) => {
+const loginIg = async (page) => {
   await page.goto(IG_LOGIN_URL, {
     waitUntil: ['load', 'networkidle0', 'domcontentloaded']
   })
@@ -26,7 +25,7 @@ const loginIg = async (page: Page) => {
   await page.waitForTimeout(3000)
 }
 
-const scrapeBeautyPostIds = async (page: Page, targetUrl: string): Promise<string[]> => {
+const scrapeBeautyPostIds = async (page, targetUrl) => {
   await page.goto(targetUrl, {
     waitUntil: ['load', 'networkidle0', 'domcontentloaded']
   })
@@ -47,7 +46,7 @@ const scrapeBeautyPostIds = async (page: Page, targetUrl: string): Promise<strin
   return postIds
 }
 
-const scrapeBeautiesInfo = async (page: Page, postIds: string[]) => {
+const scrapeBeautiesInfo = async (page, postIds) => {
   const beauties = []
   for (const postId of postIds) {
     if (dummy.beauties.find((beauty) => beauty.id === postId)) {
@@ -97,7 +96,7 @@ const scrapeBeautiesInfo = async (page: Page, postIds: string[]) => {
   return beauties
 }
 
-const scrapeIg = async (req: NextApiRequest, res: NextApiResponse) => {
+const scrapeIg = async (req, res) => {
   const {
     query: { id = 'timliaoig.beauty' }
   } = req
@@ -146,7 +145,7 @@ const scrapeIg = async (req: NextApiRequest, res: NextApiResponse) => {
   }
 }
 
-const handler = (req: NextApiRequest, res: NextApiResponse) => {
+const handler = (req, res) => {
   if (process.env.NODE_ENV !== 'development') {
     return res.status(403).json({
       statusCode: 403,

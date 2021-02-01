@@ -1,5 +1,4 @@
-import { Client, middleware, WebhookEvent } from '@line/bot-sdk'
-import type { NextApiRequest, NextApiResponse } from 'next'
+import { Client, middleware } from '@line/bot-sdk'
 import querystring from 'querystring'
 
 import { shuffle } from '../../../util/array'
@@ -17,7 +16,7 @@ const lineMiddleware = middleware(botConfig)
 // https://nextjs.org/docs/api-routes/api-middlewares
 // Helper method to wait for a middleware to execute before continuing
 // And to throw an error when an error happens in a middleware
-function runMiddleware(req: NextApiRequest, res: NextApiResponse, fn) {
+function runMiddleware(req, res, fn) {
   return new Promise((resolve, reject) => {
     fn(req, res, (result) => {
       if (result instanceof Error) {
@@ -28,7 +27,7 @@ function runMiddleware(req: NextApiRequest, res: NextApiResponse, fn) {
   })
 }
 
-const handler = async (req: NextApiRequest, res: NextApiResponse) => {
+const handler = async (req, res) => {
   if (req.method !== 'POST') {
     return res.status(404).json({
       statusCode: 404,
@@ -38,7 +37,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
 
   await runMiddleware(req, res, lineMiddleware)
   Promise.all(
-    req.body.events.map(async (event: WebhookEvent) => {
+    req.body.events.map(async (event) => {
       switch (event.type) {
         case 'message': {
           if (event.message.type !== 'text') {

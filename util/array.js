@@ -1,8 +1,4 @@
-type Target = {
-  id: string
-}
-
-export const arr2obj = <T extends Target>(array: T[]): Record<string, T> => {
+export const arr2obj = (array) => {
   return array.reduce((acc, cur) => {
     acc[cur.id] = cur
     return acc
@@ -10,8 +6,7 @@ export const arr2obj = <T extends Target>(array: T[]): Record<string, T> => {
 }
 
 // https://stackoverflow.com/questions/9719434/picking-2-random-elements-from-array
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const shuffle = (array: any[]): any[] => {
+export const shuffle = (array) => {
   let currentIndex = array.length,
     temporaryValue,
     randomIndex

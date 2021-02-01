@@ -2,21 +2,15 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 
 import { arr2obj } from '../../util/array'
 
-export type Beauty = {
-  id: string
-  instagram: string
-  images: string[]
-}
-
-type Beauties =
-  | {
-      [key: string]: Beauty
-    }
-  | Record<string, never>
-
 const initialState = {
   isFetching: false,
-  data: {} as Beauties
+  data: {
+    // [id]: {
+    //   id,
+    //   instagram,
+    //   images: []
+    // }
+  }
 }
 
 export const fetchBeauties = createAsyncThunk('beauties/fetchBeauties', async () => {
@@ -35,25 +29,25 @@ const beautiesSlice = createSlice({
   name: 'beauties',
   initialState,
   reducers: {},
-  extraReducers: (builder) => {
-    builder.addCase(fetchBeauties.fulfilled, (state, action) => {
-      state.data = arr2obj<Beauty>(action.payload.beauties)
-    })
-    builder.addCase(fetchSaveBeauties.pending, (state) => {
+  extraReducers: {
+    [fetchBeauties.fulfilled]: (state, action) => {
+      state.data = arr2obj(action.payload.beauties)
+    },
+    [fetchSaveBeauties.pending]: (state) => {
       state.isFetching = true
-    })
-    builder.addCase(fetchSaveBeauties.fulfilled, (state, action) => {
+    },
+    [fetchSaveBeauties.fulfilled]: (state, action) => {
       state.isFetching = false
       action.payload.beauties.forEach((beauty) => {
         if (!state.data[beauty.id]) {
           state.data[beauty.id] = beauty
         }
       })
-    })
-    builder.addCase(fetchSaveBeauties.rejected, (state) => {
+    },
+    [fetchSaveBeauties.rejected]: (state) => {
       state.isFetching = false
       // TODO: error handling
-    })
+    }
   }
 })
 

@@ -3,8 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import styled from 'styled-components'
 
 import SquareBox from '../../components/SquareBox'
-import { RootState } from '../../store'
-import { Beauty, fetchBeauties } from './beautiesSlice'
+import { fetchBeauties } from './beautiesSlice'
 
 const StyledBeautiesList = styled.ul`
   padding: var(--space-m);
@@ -39,7 +38,7 @@ const StyledBeautiesList = styled.ul`
 const BeautiesList = () => {
   const [initialized, setInitialized] = useState(false)
   const dispatch = useDispatch()
-  const beauties: Beauty[] = useSelector((state: RootState) => {
+  const beauties = useSelector((state) => {
     // console.log(state.beauties.data)
     return Object.values(state.beauties.data)
   })
