@@ -10,7 +10,8 @@ const initialState = {
     //   instagram,
     //   images: []
     // }
-  }
+  },
+  selectedId: ''
 }
 
 export const fetchBeauties = createAsyncThunk('beauties/fetchBeauties', async () => {
@@ -19,7 +20,17 @@ export const fetchBeauties = createAsyncThunk('beauties/fetchBeauties', async ()
   return parsedResp
 })
 
-export const fetchSaveBeauties = createAsyncThunk('beauties/fetchSaveBeauties', async () => {
+export const fetchDeleteBeauty = createAsyncThunk(
+  'beauties/fetchDeleteBeauty',
+  async ({ beautyId }) => {
+    console.log('fetchDeleteBeauty', beautyId)
+    const resp = await fetch(`/api/beauties/${beautyId}`, { method: 'DELETE' })
+    const parsedResp = await resp.json()
+    return parsedResp
+  }
+)
+
+export const fetchSyncBeauties = createAsyncThunk('beauties/fetchSyncBeauties', async () => {
   const resp = await fetch('/api/beauties', { method: 'POST' })
   const parsedResp = await resp.json()
   return parsedResp
@@ -28,15 +39,31 @@ export const fetchSaveBeauties = createAsyncThunk('beauties/fetchSaveBeauties', 
 const beautiesSlice = createSlice({
   name: 'beauties',
   initialState,
-  reducers: {},
+  reducers: {
+    selectBeauty: (state, action) => {
+      state.selectedId = action.payload.beautyId
+    }
+  },
   extraReducers: {
     [fetchBeauties.fulfilled]: (state, action) => {
       state.data = arr2obj(action.payload.beauties)
     },
-    [fetchSaveBeauties.pending]: (state) => {
+    [fetchDeleteBeauty.pending]: (state) => {
       state.isFetching = true
     },
-    [fetchSaveBeauties.fulfilled]: (state, action) => {
+    [fetchDeleteBeauty.fulfilled]: (state, action) => {
+      state.isFetching = false
+      const targetId = action.payload.beauty.id
+      delete state.data[targetId]
+    },
+    [fetchDeleteBeauty.rejected]: (state) => {
+      state.isFetching = false
+      // TODO: error handling
+    },
+    [fetchSyncBeauties.pending]: (state) => {
+      state.isFetching = true
+    },
+    [fetchSyncBeauties.fulfilled]: (state, action) => {
       state.isFetching = false
       action.payload.beauties.forEach((beauty) => {
         if (!state.data[beauty.id]) {
@@ -44,11 +71,13 @@ const beautiesSlice = createSlice({
         }
       })
     },
-    [fetchSaveBeauties.rejected]: (state) => {
+    [fetchSyncBeauties.rejected]: (state) => {
       state.isFetching = false
       // TODO: error handling
     }
   }
 })
+
+export const { selectBeauty } = beautiesSlice.actions
 
 export default beautiesSlice.reducer

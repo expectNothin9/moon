@@ -43,10 +43,29 @@ const listBeauty = async (req, res) => {
   }
 }
 
+const deleteBeauty = async (req, res) => {
+  const {
+    query: { id = '' }
+  } = req
+  console.log('deleteBeauty', id)
+  const response = await nSQL('beauties').query('delete').where(['id', '=', id]).exec()
+  const beauty = response[0]
+  if (beauty) {
+    res.json({ beauty })
+  } else {
+    return res.status(404).json({
+      statusCode: 404,
+      message: 'Not Found'
+    })
+  }
+}
+
 const handler = (req, res) => {
   switch (req.method) {
     case 'GET':
       return listBeauty(req, res)
+    case 'DELETE':
+      return deleteBeauty(req, res)
     default:
       return res.status(404).json({
         statusCode: 404,
