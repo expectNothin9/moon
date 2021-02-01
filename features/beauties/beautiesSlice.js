@@ -22,8 +22,8 @@ export const fetchBeauties = createAsyncThunk('beauties/fetchBeauties', async ()
 
 export const fetchDeleteBeauty = createAsyncThunk(
   'beauties/fetchDeleteBeauty',
+
   async ({ beautyId }) => {
-    console.log('fetchDeleteBeauty', beautyId)
     const resp = await fetch(`/api/beauties/${beautyId}`, { method: 'DELETE' })
     const parsedResp = await resp.json()
     return parsedResp

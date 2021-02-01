@@ -25,7 +25,6 @@ const DeleteBeauty = () => {
     return data[selectedId]
   })
   const handleDeleteBeauty = useCallback(() => {
-    console.log('handleDeleteBeauty beautyId:', selectedBeauty.id)
     dispatch(fetchDeleteBeauty({ beautyId: selectedBeauty.id }))
   }, [dispatch, selectedBeauty])
 
