@@ -60,6 +60,12 @@ const scrapeBeautiesInfo = async (page, postIds) => {
       const info = { id: '', instagram: '', images: [] }
       let found = null
 
+      // skip video
+      const videoPlayButton = document.querySelector('[aria-label=Play][role=button]')
+      if (videoPlayButton) {
+        return info
+      }
+
       // scrape image
       const imgPattern = /750w,(.*) 1080w/
       const srcSet = document.querySelector('article div > img').getAttribute('srcset')
